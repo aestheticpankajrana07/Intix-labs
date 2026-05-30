@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>₹1 Website Initiative — INTIX LABS</title>
+<meta name="description" content="Submit your idea, pay ₹1, and get a chance to receive a professionally built vibe-coded website by INTIX LABS."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{
+  --bg:#0A0A0A;--s1:#111111;--s2:#161616;--s3:#1c1c1c;
+  --p:#fff;--a:#00E5A8;--ad:rgba(0,229,168,.1);--a2:rgba(0,229,168,.06);
+  --mu:#A1A1AA;--b:rgba(255,255,255,.07);--b2:rgba(255,255,255,.04);
+  --fd:'Syne',sans-serif;--fb:'DM Sans',sans-serif;
+  --r8:8px;--r12:12px;--r16:16px;--r20:20px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--p);font-family:var(--fb);font-weight:300;line-height:1.7;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9998;opacity:.35}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--b)}
+.logo{font-family:var(--fd);font-weight:800;font-size:1rem;letter-spacing:.1em;color:#fff;text-decoration:none}
+.logo em{color:var(--a);font-style:normal}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:.82rem;color:var(--mu);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--a);color:#000;font-family:var(--fd);font-weight:700;font-size:.78rem;letter-spacing:.06em;padding:9px 22px;border-radius:6px;text-decoration:none;cursor:pointer;border:none;transition:opacity .2s,transform .15s}
+.nav-cta:hover{opacity:.85;transform:translateY(-1px)}
+@media(max-width:768px){nav{padding:14px 20px}.nav-links{display:none}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:130px 40px 100px;position:relative;overflow:hidden;text-align:center}
+#hcv{position:absolute;inset:0;pointer-events:none}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(var(--b2) 1px,transparent 1px),linear-gradient(90deg,var(--b2) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 5%,transparent 100%);pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+.orb1{width:560px;height:360px;background:rgba(0,229,168,.07);top:8%;left:50%;transform:translateX(-50%);animation:ob1 9s ease-in-out infinite}
+.orb2{width:280px;height:280px;background:rgba(0,229,168,.04);bottom:20%;right:10%;animation:ob2 12s ease-in-out infinite}
+@keyframes ob1{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-24px)}}
+@keyframes ob2{0%,100%{transform:translateY(0)}50%{transform:translateY(16px)}}
+.hi{position:relative;z-index:2;max-width:840px;width:100%}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--ad);border:1px solid rgba(0,229,168,.2);padding:6px 18px;border-radius:100px;font-size:.72rem;font-weight:500;color:var(--a);letter-spacing:.07em;text-transform:uppercase;margin-bottom:36px;animation:fup .8s ease both}
+.ldot{width:7px;height:7px;border-radius:50%;background:var(--a);animation:lp 2s ease infinite}
+@keyframes lp{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,229,168,.4)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(0,229,168,0)}}
+.hero h1{font-family:var(--fd);font-size:clamp(2.4rem,6vw,5rem);font-weight:800;line-height:1.07;letter-spacing:-.025em;margin-bottom:22px;animation:fup .8s .1s ease both}
+.hl{color:var(--a)}
+.hero p{font-size:clamp(.95rem,2vw,1.15rem);color:var(--mu);max-width:560px;margin:0 auto 44px;line-height:1.75;animation:fup .8s .2s ease both}
+.hctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fup .8s .3s ease both;margin-bottom:56px}
+.bp{background:var(--a);color:#000;font-family:var(--fd);font-weight:800;font-size:.95rem;letter-spacing:.03em;padding:15px 36px;border-radius:var(--r8);border:none;cursor:pointer;box-shadow:0 0 32px rgba(0,229,168,.28);transition:transform .2s,box-shadow .2s;text-decoration:none}
+.bp:hover{transform:translateY(-3px);box-shadow:0 0 52px rgba(0,229,168,.5)}
+.bg{background:transparent;color:#fff;font-family:var(--fd);font-weight:600;font-size:.95rem;padding:15px 36px;border-radius:var(--r8);border:1px solid var(--b);cursor:pointer;text-decoration:none;transition:border-color .2s,background .2s}
+.bg:hover{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.04)}
+.ftags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;animation:fup .8s .4s ease both}
+.ftag{background:var(--s1);border:1px solid var(--b);padding:7px 18px;border-radius:100px;font-size:.78rem;color:var(--mu);transition:border-color .3s,color .3s}
+.ftag:hover{border-color:rgba(0,229,168,.28);color:#fff}
+@keyframes fup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* STRIP */
+.strip{background:var(--s1);border-top:1px solid var(--b);border-bottom:1px solid var(--b);padding:48px 40px}
+.sg{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--b);border:1px solid var(--b);border-radius:var(--r16);overflow:hidden}
+.sb{background:var(--s1);padding:40px 24px;text-align:center}
+.sn{font-family:var(--fd);font-size:2.4rem;font-weight:800;color:var(--a);display:block;margin-bottom:5px}
+.sl{font-size:.78rem;color:var(--mu);letter-spacing:.05em}
+@media(max-width:768px){.sg{grid-template-columns:repeat(2,1fr)}}
+
+/* SECTION */
+.s{padding:90px 40px;max-width:1200px;margin:0 auto}
+.sc{text-align:center}
+.slbl{font-size:.68rem;letter-spacing:.18em;color:var(--a);text-transform:uppercase;font-weight:500;margin-bottom:14px}
+.stitle{font-family:var(--fd);font-size:clamp(1.7rem,3.8vw,2.8rem);font-weight:800;line-height:1.12;letter-spacing:-.02em;margin-bottom:14px}
+.ssub{color:var(--mu);font-size:.98rem;max-width:540px;line-height:1.75}
+.sc .ssub{margin:0 auto}
+
+/* WHY CARDS */
+.wg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--b);border:1px solid var(--b);border-radius:var(--r20);overflow:hidden;margin-top:48px}
+.wc{background:var(--s1);padding:44px 36px;position:relative;overflow:hidden;transition:background .25s}
+.wc::after{content:attr(data-n);position:absolute;top:16px;right:20px;font-family:var(--fd);font-size:5rem;font-weight:800;color:rgba(255,255,255,.022);line-height:1;pointer-events:none}
+.wc:hover{background:var(--s2)}
+.wi{width:46px;height:46px;border-radius:11px;background:var(--ad);border:1px solid rgba(0,229,168,.18);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:22px}
+.wc h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;margin-bottom:10px}
+.wc p{color:var(--mu);font-size:.9rem;line-height:1.7}
+@media(max-width:768px){.wg{grid-template-columns:1fr}}
+
+/* MARQUEE */
+.mq{overflow:hidden;padding:48px 0;border-top:1px solid var(--b);border-bottom:1px solid var(--b);background:var(--s1)}
+.mqt{display:flex;animation:mscroll 26s linear infinite;width:max-content}
+.mqt:hover{animation-play-state:paused}
+.mqi{padding:0 36px;font-family:var(--fd);font-size:.92rem;font-weight:700;letter-spacing:.06em;color:var(--mu);white-space:nowrap;display:flex;align-items:center;gap:16px}
+.mqi em{color:var(--a);font-style:normal}
+.mqd{width:4px;height:4px;border-radius:50%;background:var(--a);opacity:.4;flex-shrink:0}
+@keyframes mscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HOW STEPS */
+.steps{display:flex;margin-top:56px;position:relative;overflow-x:auto;padding-bottom:8px}
+.step{flex:1;min-width:140px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 10px;position:relative}
+.step:not(:last-child)::after{content:'';position:absolute;top:25px;left:calc(50% + 25px);right:calc(-50% + 25px);height:1px;background:linear-gradient(90deg,var(--a),rgba(255,255,255,.05))}
+.stepn{width:50px;height:50px;border-radius:50%;background:var(--s1);border:1px solid rgba(0,229,168,.25);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:.85rem;font-weight:800;color:var(--a);margin-bottom:16px;position:relative;z-index:1;transition:background .2s,box-shadow .2s}
+.step:hover .stepn{background:var(--ad);box-shadow:0 0 16px rgba(0,229,168,.18)}
+.step h4{font-family:var(--fd);font-size:.85rem;font-weight:700;margin-bottom:6px}
+.step p{font-size:.76rem;color:var(--mu);line-height:1.6}
+
+/* WHO GRID */
+.wog{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.wocard{background:var(--s1);border:1px solid var(--b);border-radius:var(--r12);padding:24px;display:flex;align-items:flex-start;gap:14px;transition:border-color .25s,transform .2s}
+.wocard:hover{border-color:rgba(0,229,168,.2);transform:translateY(-3px)}
+.woem{font-size:1.5rem;flex-shrink:0;line-height:1}
+.wocard h4{font-family:var(--fd);font-size:.9rem;font-weight:700;margin-bottom:4px}
+.wocard p{font-size:.78rem;color:var(--mu);line-height:1.6}
+@media(max-width:768px){.wog{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.wog{grid-template-columns:1fr}}
+
+/* WORK GRID */
+.wkg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.wkc{background:var(--s1);border:1px solid var(--b);border-radius:var(--r16);overflow:hidden;transition:transform .2s,border-color .3s}
+.wkc:hover{transform:translateY(-4px);border-color:rgba(0,229,168,.2)}
+.wkt{height:160px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;position:relative;overflow:hidden}
+.wkt::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,var(--s1) 0%,transparent 60%)}
+.wkb{padding:18px 22px}
+.wktag{font-size:.66rem;letter-spacing:.1em;color:var(--a);text-transform:uppercase;font-weight:600;margin-bottom:7px}
+.wkc h4{font-family:var(--fd);font-size:.9rem;font-weight:700;margin-bottom:5px}
+.wkc p{font-size:.78rem;color:var(--mu);line-height:1.6}
+@media(max-width:768px){.wkg{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.wkg{grid-template-columns:1fr}}
+
+/* FAQ */
+.faqlist{margin-top:44px}
+.faqitem{border-bottom:1px solid var(--b)}
+.faqq{width:100%;background:none;border:none;color:#fff;font-family:var(--fd);font-size:.96rem;font-weight:600;text-align:left;padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faqq .ico{font-size:1.1rem;color:var(--mu);transition:transform .3s,color .3s;flex-shrink:0}
+.faqitem.open .faqq .ico{transform:rotate(45deg);color:var(--a)}
+.faqa{max-height:0;overflow:hidden;transition:max-height .38s ease,padding .3s;color:var(--mu);font-size:.91rem;line-height:1.72}
+.faqitem.open .faqa{max-height:160px;padding-bottom:18px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--b);padding:60px 40px 40px;max-width:1200px;margin:0 auto}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;margin-bottom:44px}
+.flt{font-family:var(--fd);font-size:.98rem;font-weight:800;letter-spacing:.1em;margin-bottom:12px;display:block}
+.flt em{color:var(--a);font-style:normal}
+.fd{font-size:.82rem;color:var(--mu);line-height:1.7;max-width:250px}
+.fc h5{font-family:var(--fd);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);margin-bottom:12px}
+.fc a{display:block;font-size:.82rem;color:var(--mu);text-decoration:none;margin-bottom:8px;transition:color .2s}
+.fc a:hover{color:#fff}
+.fb{padding-top:24px;border-top:1px solid var(--b);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.fb p{font-size:.76rem;color:var(--mu)}
+.fb p em{color:var(--a);font-style:normal}
+@media(max-width:768px){.fg{grid-template-columns:1fr 1fr;gap:28px}}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.rev.in{opacity:1;transform:translateY(0)}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#2a2a2a;border-radius:3px}
+
+/* =============================================
+   OVERLAY SYSTEM
+   ============================================= */
+.overlay{position:fixed;inset:0;z-index:400;background:rgba(6,6,6,.97);backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto}
+.overlay.show{display:flex}
+
+/* ── MULTI-STEP FORM OVERLAY ── */
+#form-overlay .form-shell{background:var(--s1);border:1px solid var(--b);border-radius:var(--r20);max-width:600px;width:100%;margin:auto;overflow:hidden}
+.fshell-head{padding:28px 36px 20px;border-bottom:1px solid var(--b);display:flex;align-items:center;justify-content:space-between}
+.fshell-head .flogo{font-family:var(--fd);font-weight:800;font-size:.92rem;letter-spacing:.1em}
+.fshell-head .flogo em{color:var(--a);font-style:normal}
+.close-x{background:none;border:none;color:var(--mu);font-size:1.4rem;cursor:pointer;line-height:1;transition:color .2s;padding:4px}
+.close-x:hover{color:#fff}
+
+/* progress */
+.prog-bar{padding:20px 36px;border-bottom:1px solid var(--b)}
+.prog-steps{display:flex;gap:8px;margin-bottom:10px}
+.ps{flex:1;height:3px;border-radius:2px;background:var(--b);transition:background .4s}
+.ps.done{background:var(--a)}
+.ps.active{background:rgba(0,229,168,.4)}
+.prog-label{font-size:.72rem;color:var(--mu);letter-spacing:.06em}
+.prog-label em{color:var(--a);font-style:normal;font-weight:600}
+
+/* form body */
+.fstep{display:none;padding:32px 36px 28px;animation:fup .35s ease both}
+.fstep.active{display:block}
+.step-title{font-family:var(--fd);font-size:1.3rem;font-weight:800;margin-bottom:6px}
+.step-sub{font-size:.84rem;color:var(--mu);margin-bottom:28px}
+.ff{margin-bottom:16px}
+.ff label{display:block;font-size:.7rem;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;font-weight:500}
+.ff input,.ff textarea,.ff select{width:100%;background:var(--s2);border:1px solid var(--b);color:#fff;font-family:var(--fb);font-size:.92rem;padding:12px 14px;border-radius:var(--r8);outline:none;transition:border-color .2s,background .2s;resize:none;-webkit-appearance:none}
+.ff input:focus,.ff textarea:focus,.ff select:focus{border-color:rgba(0,229,168,.38);background:var(--s3)}
+.ff input::placeholder,.ff textarea::placeholder{color:#555}
+.ff select option{background:#1a1a1a;color:#fff}
+.ff-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.req-star{color:var(--a)}
+.ffoot{padding:0 36px 28px;display:flex;gap:12px;align-items:center}
+.ffoot .back-btn{background:none;border:1px solid var(--b);color:var(--mu);font-family:var(--fd);font-weight:600;font-size:.86rem;padding:12px 24px;border-radius:var(--r8);cursor:pointer;transition:border-color .2s,color .2s}
+.ffoot .back-btn:hover{border-color:rgba(255,255,255,.18);color:#fff}
+.ffoot .next-btn{flex:1;background:var(--a);color:#000;font-family:var(--fd);font-weight:800;font-size:.9rem;padding:13px;border-radius:var(--r8);border:none;cursor:pointer;transition:opacity .2s,transform .15s}
+.ffoot .next-btn:hover{opacity:.88;transform:translateY(-1px)}
+
+/* REVIEW STEP */
+.review-card{background:var(--s2);border:1px solid var(--b);border-radius:var(--r12);overflow:hidden;margin-bottom:20px}
+.rc-section{padding:20px 24px;border-bottom:1px solid var(--b)}
+.rc-section:last-child{border-bottom:none}
+.rc-label{font-size:.65rem;letter-spacing:.12em;color:var(--a);text-transform:uppercase;font-weight:600;margin-bottom:12px}
+.rc-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:16px}
+.rc-row:last-child{margin-bottom:0}
+.rc-key{font-size:.8rem;color:var(--mu);flex-shrink:0}
+.rc-val{font-size:.84rem;color:#fff;font-weight:500;text-align:right;word-break:break-word}
+.fee-row{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;background:var(--ad);border-top:1px solid rgba(0,229,168,.15)}
+.fee-label{font-family:var(--fd);font-size:.85rem;font-weight:700;color:var(--a)}
+.fee-val{font-family:var(--fd);font-size:1.4rem;font-weight:800;color:var(--a)}
+
+/* ─────────────────────────────────────────────
+   PREMIUM CHECKOUT PAGE  (full-screen, not popup)
+   ───────────────────────────────────────────── */
+#checkout-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:#080808;
+  display:none;align-items:flex-start;justify-content:center;
+  overflow-y:auto;padding:0;
+}
+#checkout-overlay.show{display:flex}
+
+/* ambient background blobs */
+#checkout-overlay::before{
+  content:'';position:fixed;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,229,168,.055) 0%,transparent 70%);
+  top:-200px;left:-200px;pointer-events:none;
+  animation:coob 12s ease-in-out infinite;
+}
+#checkout-overlay::after{
+  content:'';position:fixed;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,229,168,.035) 0%,transparent 70%);
+  bottom:-150px;right:-100px;pointer-events:none;
+  animation:coob 16s ease-in-out infinite reverse;
+}
+@keyframes coob{0%,100%{transform:scale(1) translate(0,0)}50%{transform:scale(1.1) translate(12px,-12px)}}
+
+.checkout-page{
+  position:relative;z-index:1;
+  width:100%;min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  max-width:1100px;margin:0 auto;
+}
+@media(max-width:800px){.checkout-page{grid-template-columns:1fr}}
+
+/* LEFT PANEL — Order summary */
+.co-left{
+  padding:64px 56px;
+  border-right:1px solid rgba(255,255,255,.06);
+  display:flex;flex-direction:column;justify-content:center;
+  position:sticky;top:0;height:100vh;overflow:hidden;
+}
+@media(max-width:800px){.co-left{position:static;height:auto;padding:48px 32px;border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}}
+
+.co-back-bar{display:flex;align-items:center;gap:10px;margin-bottom:48px}
+.co-back-icon{width:36px;height:36px;border-radius:8px;background:var(--s2);border:1px solid var(--b);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,background .2s;flex-shrink:0}
+.co-back-icon:hover{border-color:rgba(255,255,255,.18);background:var(--s3)}
+.co-back-icon svg{width:14px;height:14px;color:var(--mu)}
+.co-back-label{font-size:.78rem;color:var(--mu);cursor:pointer;transition:color .2s}
+.co-back-label:hover{color:#fff}
+
+.co-brand{font-family:var(--fd);font-weight:800;font-size:.82rem;letter-spacing:.14em;color:var(--mu);text-transform:uppercase;margin-bottom:6px}
+.co-brand em{color:var(--a);font-style:normal}
+.co-checkout-label{font-size:.66rem;letter-spacing:.16em;color:rgba(255,255,255,.25);text-transform:uppercase;margin-bottom:40px}
+
+.co-proj-title{font-family:var(--fd);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;line-height:1.15;margin-bottom:32px;letter-spacing:-.02em}
+
+.co-details{display:flex;flex-direction:column;gap:0;background:var(--s1);border:1px solid var(--b);border-radius:var(--r12);overflow:hidden;margin-bottom:28px}
+.co-detail-row{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--b)}
+.co-detail-row:last-child{border-bottom:none}
+.co-dk{font-size:.72rem;color:var(--mu);letter-spacing:.07em;text-transform:uppercase;font-weight:500}
+.co-dv{font-size:.88rem;color:#fff;font-weight:500;text-align:right;max-width:200px;word-break:break-all}
+.co-dv-accent{color:var(--a)}
+
+.co-amount-strip{background:var(--ad);border:1px solid rgba(0,229,168,.15);border-radius:var(--r12);padding:20px 22px;display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.co-am-left .co-am-label{font-family:var(--fd);font-size:.78rem;font-weight:700;color:var(--a);margin-bottom:3px}
+.co-am-left .co-am-sub{font-size:.7rem;color:rgba(0,229,168,.6)}
+.co-am-val{font-family:var(--fd);font-size:2.2rem;font-weight:800;color:var(--a);text-shadow:0 0 24px rgba(0,229,168,.35);letter-spacing:-.03em}
+
+.co-trust{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(255,255,255,.025);border-radius:8px;border:1px solid var(--b)}
+.co-trust-icon{font-size:.9rem}
+.co-trust p{font-size:.72rem;color:var(--mu);line-height:1.5}
+
+/* RIGHT PANEL — QR Payment */
+.co-right{
+  padding:64px 56px;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;
+}
+@media(max-width:800px){.co-right{padding:48px 32px}}
+
+.co-right-heading{font-family:var(--fd);font-size:1.1rem;font-weight:800;margin-bottom:6px}
+.co-right-sub{font-size:.82rem;color:var(--mu);margin-bottom:36px;line-height:1.6}
+
+/* Premium QR card */
+.qr-card{
+  background:#0d0d0d;
+  border:1px solid rgba(0,229,168,.2);
+  border-radius:20px;
+  padding:36px 28px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  box-shadow:
+    0 0 0 1px rgba(0,229,168,.05),
+    0 0 60px rgba(0,229,168,.07),
+    0 0 120px rgba(0,229,168,.03),
+    0 32px 64px rgba(0,0,0,.6),
+    inset 0 1px 0 rgba(255,255,255,.07),
+    inset 0 -1px 0 rgba(0,0,0,.5);
+  transition:box-shadow .4s,border-color .4s;
+  margin-bottom:24px;
+}
+.qr-card:hover{
+  border-color:rgba(0,229,168,.32);
+  box-shadow:
+    0 0 0 1px rgba(0,229,168,.08),
+    0 0 80px rgba(0,229,168,.12),
+    0 0 160px rgba(0,229,168,.05),
+    0 32px 64px rgba(0,0,0,.6),
+    inset 0 1px 0 rgba(255,255,255,.1),
+    inset 0 -1px 0 rgba(0,0,0,.5);
+}
+/* inner top glow */
+.qr-card::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:200px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(0,229,168,.5),transparent);
+}
+/* inner corner accents */
+.qr-card::after{
+  content:'';position:absolute;inset:0;border-radius:20px;
+  background:radial-gradient(ellipse 120% 60% at 50% 0%,rgba(0,229,168,.04) 0%,transparent 60%);
+  pointer-events:none;
+}
+
+.qr-logo-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:20px}
+.qr-logo-dot{width:6px;height:6px;border-radius:50%;background:var(--a);box-shadow:0 0 8px rgba(0,229,168,.6)}
+.qr-logo-text{font-family:var(--fd);font-size:.7rem;font-weight:800;letter-spacing:.18em;color:rgba(255,255,255,.5);text-transform:uppercase}
+.qr-logo-text em{color:var(--a);font-style:normal}
+
+/* QR wrapper with corner brackets */
+.qr-wrap{
+  position:relative;display:inline-block;
+  padding:12px;margin:0 auto 16px;
+}
+.qr-wrap::before,.qr-wrap::after,
+.qr-corner-br,.qr-corner-bl{
+  content:'';position:absolute;width:18px;height:18px;
+  border-color:rgba(0,229,168,.5);border-style:solid;border-width:0;
+}
+.qr-wrap::before{top:0;left:0;border-top-width:2px;border-left-width:2px;border-radius:3px 0 0 0}
+.qr-wrap::after{top:0;right:0;border-top-width:2px;border-right-width:2px;border-radius:0 3px 0 0}
+.qr-corner-br{bottom:0;right:0;border-bottom-width:2px;border-right-width:2px;border-radius:0 0 3px 0}
+.qr-corner-bl{bottom:0;left:0;border-bottom-width:2px;border-left-width:2px;border-radius:0 0 0 3px}
+
+#qr-container{display:flex;justify-content:center}
+#qr-container canvas,#qr-container img{border-radius:6px;display:block}
+
+.qr-amount{font-family:var(--fd);font-size:1.8rem;font-weight:800;color:var(--a);text-shadow:0 0 20px rgba(0,229,168,.4);margin-bottom:4px;letter-spacing:-.03em}
+.qr-upi-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:20px}
+.qr-upi-label{font-size:.68rem;color:rgba(255,255,255,.3);letter-spacing:.06em;text-transform:uppercase}
+.qr-upi-id{font-size:.82rem;color:rgba(255,255,255,.7);font-weight:500;font-family:var(--fd);letter-spacing:.02em}
+
+.qr-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:relative;z-index:1}
+.qr-copy-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.7);font-family:var(--fd);font-weight:700;font-size:.72rem;letter-spacing:.04em;padding:10px 8px;border-radius:var(--r8);cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.qr-copy-btn:hover{border-color:rgba(0,229,168,.3);color:var(--a);background:rgba(0,229,168,.05)}
+.qr-open-btn{background:var(--a);border:none;color:#000;font-family:var(--fd);font-weight:800;font-size:.72rem;letter-spacing:.04em;padding:10px 8px;border-radius:var(--r8);cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 0 16px rgba(0,229,168,.25)}
+.qr-open-btn:hover{opacity:.88;box-shadow:0 0 28px rgba(0,229,168,.45);transform:translateY(-1px)}
+
+/* Paid CTA */
+.co-paid-btn{
+  width:100%;padding:16px;
+  background:transparent;
+  border:1px solid rgba(0,229,168,.3);
+  color:var(--a);
+  font-family:var(--fd);font-weight:700;font-size:.9rem;
+  border-radius:var(--r12);cursor:pointer;
+  transition:background .25s,border-color .25s,box-shadow .25s;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  letter-spacing:.02em;
+}
+.co-paid-btn:hover{background:var(--ad);border-color:rgba(0,229,168,.5);box-shadow:0 0 24px rgba(0,229,168,.1)}
+.co-paid-btn-icon{width:20px;height:20px;border-radius:50%;background:rgba(0,229,168,.15);border:1px solid rgba(0,229,168,.3);display:flex;align-items:center;justify-content:center;font-size:.7rem}
+
+/* ── TXN ID MODAL ── */
+#txn-modal{position:fixed;inset:0;z-index:600;background:rgba(6,6,6,.97);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:24px}
+#txn-modal.show{display:flex}
+.txn-box{background:var(--s1);border:1px solid var(--b);border-radius:var(--r20);padding:52px 44px;max-width:480px;width:100%;text-align:center;box-shadow:0 0 80px rgba(0,0,0,.6)}
+.txn-icon-wrap{width:64px;height:64px;border-radius:50%;background:var(--ad);border:1px solid rgba(0,229,168,.25);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 24px;box-shadow:0 0 32px rgba(0,229,168,.12)}
+.txn-box h3{font-family:var(--fd);font-size:1.5rem;font-weight:800;margin-bottom:8px}
+.txn-box p{color:var(--mu);font-size:.88rem;margin-bottom:28px;line-height:1.7}
+.txn-input-wrap{text-align:left;margin-bottom:20px}
+.txn-input-wrap label{display:block;font-size:.7rem;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+.txn-input-wrap input{width:100%;background:var(--s2);border:1px solid var(--b);color:#fff;font-family:var(--fb);font-size:.95rem;padding:14px 16px;border-radius:var(--r8);outline:none;transition:border-color .2s;letter-spacing:.04em}
+.txn-input-wrap input:focus{border-color:rgba(0,229,168,.4);background:var(--s3)}
+.txn-input-wrap input::placeholder{color:#444}
+.txn-note{font-size:.74rem;color:var(--mu);margin-top:7px;opacity:.7;line-height:1.5}
+.verify-btn{width:100%;background:var(--a);color:#000;font-family:var(--fd);font-weight:800;font-size:.96rem;padding:15px;border-radius:var(--r8);border:none;cursor:pointer;box-shadow:0 0 28px rgba(0,229,168,.22);transition:transform .2s,box-shadow .2s,opacity .2s}
+.verify-btn:hover{transform:translateY(-2px);box-shadow:0 0 44px rgba(0,229,168,.42)}
+.verify-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* ── SUCCESS PAGE ── */
+#success-overlay{position:fixed;inset:0;z-index:700;background:var(--bg);display:none;flex-direction:column;align-items:center;justify-content:flex-start;overflow-y:auto;padding:80px 24px 80px}
+#success-overlay.show{display:flex}
+.success-inner{max-width:700px;width:100%;margin:auto}
+
+/* confetti ring */
+.success-ring{position:relative;width:88px;height:88px;margin:0 auto 28px}
+.success-ring::before{content:'';position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(0,229,168,.15);animation:ringpulse 2s ease-out infinite}
+.success-ring::after{content:'';position:absolute;inset:-16px;border-radius:50%;border:1px solid rgba(0,229,168,.07);animation:ringpulse 2s .3s ease-out infinite}
+@keyframes ringpulse{0%{transform:scale(.85);opacity:0}50%{opacity:1}100%{transform:scale(1.1);opacity:0}}
+.success-check{width:88px;height:88px;border-radius:50%;background:var(--ad);border:1px solid rgba(0,229,168,.3);display:flex;align-items:center;justify-content:center;font-size:2.2rem;box-shadow:0 0 48px rgba(0,229,168,.18);animation:pop .5s ease both;position:relative;z-index:1}
+@keyframes pop{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+
+.success-inner h1{font-family:var(--fd);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.15;text-align:center;margin-bottom:12px;animation:fup .6s .15s ease both}
+.success-inner h1 em{color:var(--a);font-style:normal}
+.success-inner > .success-sub{color:var(--mu);text-align:center;margin-bottom:40px;font-size:.95rem;line-height:1.75;animation:fup .6s .25s ease both;max-width:500px;margin-left:auto;margin-right:auto}
+
+/* status card */
+.status-card{background:var(--s1);border:1px solid var(--b);border-radius:var(--r16);overflow:hidden;margin-bottom:20px;animation:fup .6s .35s ease both}
+.sc-header{background:var(--ad);border-bottom:1px solid rgba(0,229,168,.12);padding:16px 28px;display:flex;align-items:center;justify-content:space-between}
+.sc-header-left{display:flex;align-items:center;gap:10px}
+.sc-header .dot{width:8px;height:8px;border-radius:50%;background:var(--a);animation:lp 2s ease infinite;flex-shrink:0}
+.sc-header span{font-family:var(--fd);font-size:.82rem;font-weight:700;color:var(--a);letter-spacing:.06em}
+.sc-header .review-time-badge{font-size:.68rem;color:rgba(0,229,168,.7);background:rgba(0,229,168,.08);border:1px solid rgba(0,229,168,.18);padding:4px 12px;border-radius:100px;letter-spacing:.04em}
+.sc-body{padding:24px 28px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sc-item .key{font-size:.65rem;letter-spacing:.1em;color:var(--mu);text-transform:uppercase;margin-bottom:4px;font-weight:500}
+.sc-item .val{font-family:var(--fd);font-size:.92rem;font-weight:700;color:#fff;word-break:break-all}
+.sc-item .val.green{color:var(--a)}
+
+/* invoice preview */
+.inv-preview{background:var(--s1);border:1px solid var(--b);border-radius:var(--r16);overflow:hidden;margin-bottom:20px;animation:fup .6s .45s ease both}
+.inv-head{padding:22px 28px;border-bottom:1px solid var(--b);display:flex;justify-content:space-between;align-items:center}
+.inv-brand{font-family:var(--fd);font-size:.8rem;font-weight:800;letter-spacing:.1em;color:var(--mu)}
+.inv-brand em{color:var(--a);font-style:normal}
+.inv-title-row{display:flex;align-items:center;gap:10px}
+.inv-title{font-family:var(--fd);font-size:.96rem;font-weight:800}
+.inv-badge{background:rgba(0,229,168,.1);border:1px solid rgba(0,229,168,.2);color:var(--a);font-size:.66rem;font-weight:700;letter-spacing:.08em;padding:4px 12px;border-radius:100px;text-transform:uppercase}
+.inv-rows{padding:0 28px}
+.inv-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--b);font-size:.86rem}
+.inv-row:last-child{border-bottom:none}
+.inv-row .ik{color:var(--mu)}
+.inv-row .iv{color:#fff;font-weight:500;text-align:right;word-break:break-all}
+.inv-total{padding:16px 28px;background:var(--ad);border-top:1px solid rgba(0,229,168,.12);display:flex;justify-content:space-between;align-items:center}
+.inv-total span:first-child{font-family:var(--fd);font-size:.88rem;font-weight:700;color:var(--a)}
+.inv-total span:last-child{font-family:var(--fd);font-size:1.4rem;font-weight:800;color:var(--a)}
+
+/* download buttons */
+.dl-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;animation:fup .6s .55s ease both}
+.dl-btn{flex:1;min-width:160px;font-family:var(--fd);font-weight:700;font-size:.84rem;padding:14px 20px;border-radius:var(--r8);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;text-align:center}
+.dl-btn.prime{background:var(--a);color:#000;border:none;box-shadow:0 0 20px rgba(0,229,168,.2)}
+.dl-btn.prime:hover{opacity:.85;transform:translateY(-1px)}
+.dl-btn.sec{background:none;border:1px solid var(--b);color:#fff}
+.dl-btn.sec:hover{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.04)}
+.home-btn{width:100%;background:none;border:1px solid var(--b);color:var(--mu);font-family:var(--fd);font-weight:600;font-size:.84rem;padding:13px;border-radius:var(--r8);cursor:pointer;transition:border-color .2s,color .2s;animation:fup .6s .6s ease both;display:flex;align-items:center;justify-content:center;gap:8px}
+.home-btn:hover{border-color:rgba(255,255,255,.18);color:#fff}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">INTIX<em>.</em>LABS</a>
+  <div class="nav-links">
+    <a href="#why">Why ₹1</a>
+    <a href="#how">Process</a>
+    <a href="#who">Who Can Apply</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <button class="nav-cta" onclick="openForm()">Get My Website →</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <canvas id="hcv"></canvas>
+  <div class="hgrid"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="hi">
+    <div class="badge"><div class="ldot"></div>₹1 Website Initiative — Open Now</div>
+    <h1>Build Your Dream Website<br>For Just <span class="hl">₹1</span>.</h1>
+    <p>Submit your idea, pay ₹1, and enter the selection pool. Every week INTIX LABS chooses projects to transform into beautiful vibe-coded websites.</p>
+    <div class="hctas">
+      <button class="bp" onclick="openForm()">Get My Website →</button>
+      <a href="#how" class="bg">See How It Works</a>
+    </div>
+    <div class="ftags">
+      <span class="ftag">🎓 Students</span>
+      <span class="ftag">🎨 Creators</span>
+      <span class="ftag">🏪 Local Businesses</span>
+      <span class="ftag">🚀 Startups</span>
+      <span class="ftag">💻 Developers</span>
+      <span class="ftag">🌍 Communities</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="strip">
+  <div class="sg rev">
+    <div class="sb"><span class="sn" id="s1">0</span><span class="sl">Applications Received</span></div>
+    <div class="sb"><span class="sn" id="s2">0</span><span class="sl">Websites Delivered</span></div>
+    <div class="sb"><span class="sn" id="s3">0</span><span class="sl">Projects Selected</span></div>
+    <div class="sb"><span class="sn" id="s4">0</span><span class="sl">Happy Founders</span></div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section class="s" id="why">
+  <div class="rev"><p class="slbl">The reasoning</p><h2 class="stitle">Why only ₹1?</h2><p class="ssub">It's not about the money. It's about removing barriers while keeping quality high.</p></div>
+  <div class="wg rev">
+    <div class="wc" data-n="01"><div class="wi">🔓</div><h3>Accessibility</h3><p>Anyone can participate. No expensive agency fees. No upfront commitments. ₹1 is all it takes to enter and get a real shot at a professionally built website.</p></div>
+    <div class="wc" data-n="02"><div class="wi">🎯</div><h3>Serious Requests Only</h3><p>The ₹1 fee is a filter — not a barrier. It ensures every application comes from someone genuinely interested, keeping submission quality high.</p></div>
+    <div class="wc" data-n="03"><div class="wi">🔬</div><h3>Community Experiment</h3><p>We're exploring whether great products can begin with almost no barrier to entry. This is our hypothesis. And we're testing it with real projects.</p></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mqt">
+    <span class="mqi"><em>VIBE-CODED WEBSITES</em><span class="mqd"></span></span>
+    <span class="mqi">JUST ₹1 ENTRY<span class="mqd"></span></span>
+    <span class="mqi"><em>WEEKLY SELECTIONS</em><span class="mqd"></span></span>
+    <span class="mqi">BY INTIX LABS<span class="mqd"></span></span>
+    <span class="mqi"><em>OPEN TO EVERYONE</em><span class="mqd"></span></span>
+    <span class="mqi">PREMIUM DESIGN<span class="mqd"></span></span>
+    <span class="mqi"><em>ZERO AGENCY FEES</em><span class="mqd"></span></span>
+    <span class="mqi">SUNDARGARH → WORLD<span class="mqd"></span></span>
+    <span class="mqi"><em>VIBE-CODED WEBSITES</em><span class="mqd"></span></span>
+    <span class="mqi">JUST ₹1 ENTRY<span class="mqd"></span></span>
+    <span class="mqi"><em>WEEKLY SELECTIONS</em><span class="mqd"></span></span>
+    <span class="mqi">BY INTIX LABS<span class="mqd"></span></span>
+    <span class="mqi"><em>OPEN TO EVERYONE</em><span class="mqd"></span></span>
+    <span class="mqi">PREMIUM DESIGN<span class="mqd"></span></span>
+    <span class="mqi"><em>ZERO AGENCY FEES</em><span class="mqd"></span></span>
+    <span class="mqi">SUNDARGARH → WORLD<span class="mqd"></span></span>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="s sc" id="how">
+  <div class="rev"><p class="slbl">The process</p><h2 class="stitle">Simple. Transparent. Fast.</h2><p class="ssub">From idea to live website in five steps.</p></div>
+  <div class="steps rev">
+    <div class="step"><div class="stepn">01</div><h4>Apply Online</h4><p>Fill in your personal and project details.</p></div>
+    <div class="step"><div class="stepn">02</div><h4>Pay ₹1</h4><p>A symbolic commitment via UPI in under 30 seconds.</p></div>
+    <div class="step"><div class="stepn">03</div><h4>Application Review</h4><p>INTIX LABS reviews all requests within 3–7 days.</p></div>
+    <div class="step"><div class="stepn">04</div><h4>Project Selection</h4><p>Promising ideas are chosen for full development weekly.</p></div>
+    <div class="step"><div class="stepn">05</div><h4>Website Delivery</h4><p>Receive a professionally crafted vibe-coded website.</p></div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="s" id="who">
+  <div class="rev"><p class="slbl">Eligibility</p><h2 class="stitle">Who can apply?</h2><p class="ssub">If you have an idea worth building a website for, you qualify.</p></div>
+  <div class="wog rev">
+    <div class="wocard"><span class="woem">🎓</span><div><h4>Students</h4><p>Portfolio sites, college projects, clubs, personal branding.</p></div></div>
+    <div class="wocard"><span class="woem">🎨</span><div><h4>Creators</h4><p>YouTubers, artists, designers — get a site that matches your vibe.</p></div></div>
+    <div class="wocard"><span class="woem">🏪</span><div><h4>Local Businesses</h4><p>Shops, salons, restaurants, service providers going online.</p></div></div>
+    <div class="wocard"><span class="woem">🚀</span><div><h4>Startup Founders</h4><p>Validate your idea with a real landing page before spending big.</p></div></div>
+    <div class="wocard"><span class="woem">💻</span><div><h4>Developers</h4><p>Need a side-project or SaaS landing page with real design taste?</p></div></div>
+    <div class="wocard"><span class="woem">🌍</span><div><h4>Community Builders</h4><p>NGOs, clubs, collectives who need a polished digital home.</p></div></div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="s">
+  <div class="rev"><p class="slbl">Our craft</p><h2 class="stitle">What INTIX builds.</h2><p class="ssub">Every selected project gets a hand-crafted, premium website. Here's a taste.</p></div>
+  <div class="wkg rev">
+    <div class="wkc"><div class="wkt" style="background:linear-gradient(135deg,#0d1117,#1a1a2e)">🎬</div><div class="wkb"><p class="wktag">Photography Studio</p><h4>FrameX Studio</h4><p>Dark cinematic site with masonry portfolio and WhatsApp CTA.</p></div></div>
+    <div class="wkc"><div class="wkt" style="background:linear-gradient(135deg,#0a0f1e,#0d2137)">📱</div><div class="wkb"><p class="wktag">Social Media Platform</p><h4>Social Lift India</h4><p>Full SMM panel with cart, coupons, UPI checkout and admin.</p></div></div>
+    <div class="wkc"><div class="wkt" style="background:linear-gradient(135deg,#0a1208,#0d2010)">🎓</div><div class="wkb"><p class="wktag">EdTech Platform</p><h4>Intix Education</h4><p>AI-powered learning platform with courses and certificates.</p></div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="s" id="faq" style="max-width:760px">
+  <div class="rev"><p class="slbl">Questions</p><h2 class="stitle">Frequently Asked.</h2></div>
+  <div class="faqlist rev">
+    <div class="faqitem"><button class="faqq">Is ₹1 the actual website development cost? <span class="ico">+</span></button><div class="faqa">No. ₹1 is a symbolic application fee — not the development cost. Selected projects are built by INTIX LABS at no additional charge.</div></div>
+    <div class="faqitem"><button class="faqq">Is every application guaranteed to be selected? <span class="ico">+</span></button><div class="faqa">No. Every project is reviewed individually. Promising ideas are selected each week. Paying ₹1 enters you into the pool — it does not guarantee selection.</div></div>
+    <div class="faqitem"><button class="faqq">What kind of websites does INTIX LABS build? <span class="ico">+</span></button><div class="faqa">Modern, visually distinctive "vibe-coded" websites — custom designed, responsive, fast, and crafted to match your brand identity. Not templates. Real, hand-crafted websites.</div></div>
+    <div class="faqitem"><button class="faqq">How long does the review take? <span class="ico">+</span></button><div class="faqa">Applications are reviewed within 3–7 days. If selected, you'll receive direct contact from the INTIX LABS team to begin collaboration.</div></div>
+    <div class="faqitem"><button class="faqq">Is the payment secure? <span class="ico">+</span></button><div class="faqa">Yes. Payments are made via UPI — India's official payments infrastructure. No card data is stored by us. The transaction is between you and your bank.</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fg">
+    <div><span class="flt">INTIX<em>.</em>LABS</span><p class="fd">An experimental studio building technology, vibe-coded websites and digital products. Based in Sundargarh, Odisha, India.</p></div>
+    <div class="fc"><h5>Initiative</h5><a href="#why">Why ₹1</a><a href="#how">How It Works</a><a href="#who">Who Can Apply</a><a href="#" onclick="openForm();return false">Apply Now</a></div>
+    <div class="fc"><h5>INTIX Labs</h5><a href="#">About</a><a href="#">Our Work</a><a href="#">Intix Education</a><a href="#">Liftify AI</a></div>
+    <div class="fc"><h5>Contact</h5><a href="mailto:pxbypushkarstudio@gmail.com">Email Us</a><a href="https://wa.me/919556831369">WhatsApp</a><a href="#faq">FAQ</a></div>
+  </div>
+  <div class="fb">
+    <p>© 2024 INTIX Labs. Built in <em>Sundargarh, India</em>.</p>
+    <p>"Great websites shouldn't be limited by budget."</p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     MULTI-STEP FORM OVERLAY
+     ============================================================ -->
+<div class="overlay" id="form-overlay">
+  <div class="form-shell">
+    <div class="fshell-head">
+      <span class="flogo">INTIX<em>.</em>LABS</span>
+      <button class="close-x" onclick="closeForm()">✕</button>
+    </div>
+    <div class="prog-bar">
+      <div class="prog-steps">
+        <div class="ps active" id="ps1"></div>
+        <div class="ps" id="ps2"></div>
+        <div class="ps" id="ps3"></div>
+      </div>
+      <p class="prog-label">Step <em id="step-cur">1</em> of <em>3</em> — <span id="step-name">Personal Information</span></p>
+    </div>
+
+    <!-- STEP 1: Personal Info -->
+    <div class="fstep active" id="fstep-1">
+      <p class="step-title">Personal Information</p>
+      <p class="step-sub">Tell us who you are so we can reach you.</p>
+      <div class="ff"><label>Full Name <span class="req-star">*</span></label><input type="text" id="f-name" placeholder="Your full name"/></div>
+      <div class="ff"><label>Email Address <span class="req-star">*</span></label><input type="email" id="f-email" placeholder="you@email.com"/></div>
+      <div class="ff"><label>Phone Number</label><input type="tel" id="f-phone" placeholder="+91 XXXXXXXXXX"/></div>
+    </div>
+    <div class="ffoot" id="ffoot-1" style="border-top:1px solid var(--b);padding-top:20px">
+      <button class="next-btn" onclick="goStep(2)">Continue →</button>
+    </div>
+
+    <!-- STEP 2: Project Info -->
+    <div class="fstep" id="fstep-2">
+      <p class="step-title">Project Information</p>
+      <p class="step-sub">Describe what you're building.</p>
+      <div class="ff-row">
+        <div class="ff"><label>Project / Brand Name <span class="req-star">*</span></label><input type="text" id="f-project" placeholder="e.g. Arjun's Photography"/></div>
+        <div class="ff">
+          <label>Website Category <span class="req-star">*</span></label>
+          <select id="f-type">
+            <option value="">Select...</option>
+            <option>Portfolio / Personal Brand</option>
+            <option>Business / Local Shop</option>
+            <option>Startup Landing Page</option>
+            <option>Creator / Influencer Page</option>
+            <option>NGO / Community Site</option>
+            <option>E-commerce Store</option>
+            <option>Blog / Content Site</option>
+            <option>Developer / SaaS</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="ff"><label>Project Description <span class="req-star">*</span></label><textarea id="f-desc" rows="3" placeholder="What does your business/idea do? Who is it for? What's your goal?"></textarea></div>
+      <div class="ff-row">
+        <div class="ff"><label>Existing Website</label><input type="url" id="f-existing" placeholder="https://..."/></div>
+        <div class="ff"><label>Instagram / Social</label><input type="text" id="f-social" placeholder="@handle or URL"/></div>
+      </div>
+      <div class="ff"><label>Additional Notes</label><textarea id="f-notes" rows="2" placeholder="References, inspirations, color preferences..."></textarea></div>
+    </div>
+    <div class="ffoot" id="ffoot-2" style="border-top:1px solid var(--b);padding-top:20px">
+      <button class="back-btn" onclick="goStep(1)">← Back</button>
+      <button class="next-btn" onclick="goStep(3)">Review Submission →</button>
+    </div>
+
+    <!-- STEP 3: Review -->
+    <div class="fstep" id="fstep-3">
+      <p class="step-title">Review Submission</p>
+      <p class="step-sub">Confirm your details before proceeding to payment.</p>
+      <div class="review-card">
+        <div class="rc-section">
+          <p class="rc-label">Personal Details</p>
+          <div class="rc-row"><span class="rc-key">Name</span><span class="rc-val" id="rv-name">—</span></div>
+          <div class="rc-row"><span class="rc-key">Email</span><span class="rc-val" id="rv-email">—</span></div>
+          <div class="rc-row"><span class="rc-key">Phone</span><span class="rc-val" id="rv-phone">—</span></div>
+        </div>
+        <div class="rc-section">
+          <p class="rc-label">Project Details</p>
+          <div class="rc-row"><span class="rc-key">Project</span><span class="rc-val" id="rv-project">—</span></div>
+          <div class="rc-row"><span class="rc-key">Website Type</span><span class="rc-val" id="rv-type">—</span></div>
+          <div class="rc-row"><span class="rc-key">Description</span><span class="rc-val" id="rv-desc" style="max-width:60%;font-size:.8rem">—</span></div>
+        </div>
+        <div class="fee-row">
+          <span class="fee-label">Application Fee</span>
+          <span class="fee-val">₹1.00</span>
+        </div>
+      </div>
+    </div>
+    <div class="ffoot" id="ffoot-3" style="border-top:1px solid var(--b);padding-top:20px">
+      <button class="back-btn" onclick="goStep(2)">← Edit</button>
+      <button class="next-btn" onclick="openCheckout()">Continue To Payment →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     PREMIUM CHECKOUT PAGE
+     ============================================================ -->
+<div id="checkout-overlay">
+  <div class="checkout-page">
+
+    <!-- LEFT — Order Summary -->
+    <div class="co-left">
+      <div class="co-back-bar">
+        <div class="co-back-icon" onclick="closeCheckout()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </div>
+        <span class="co-back-label" onclick="closeCheckout()">Back to review</span>
+      </div>
+
+      <p class="co-brand">INTIX<em>.</em>LABS</p>
+      <p class="co-checkout-label">Secure Checkout · UPI Payment</p>
+
+      <p class="co-proj-title" id="co-proj-title">Your Project</p>
+
+      <div class="co-details">
+        <div class="co-detail-row">
+          <span class="co-dk">Applicant</span>
+          <span class="co-dv" id="co-name">—</span>
+        </div>
+        <div class="co-detail-row">
+          <span class="co-dk">Email</span>
+          <span class="co-dv" id="co-email" style="font-size:.8rem">—</span>
+        </div>
+        <div class="co-detail-row">
+          <span class="co-dk">Website Type</span>
+          <span class="co-dv" id="co-type">—</span>
+        </div>
+        <div class="co-detail-row">
+          <span class="co-dk">Service</span>
+          <span class="co-dv co-dv-accent">₹1 Website Initiative</span>
+        </div>
+      </div>
+
+      <div class="co-amount-strip">
+        <div class="co-am-left">
+          <p class="co-am-label">Application Fee</p>
+          <p class="co-am-sub">One-time · Non-refundable</p>
+        </div>
+        <div class="co-am-val">₹1.00</div>
+      </div>
+
+      <div class="co-trust">
+        <span class="co-trust-icon">🔒</span>
+        <p>Payment via UPI — India's official payments infrastructure. INTIX LABS does not store your payment credentials.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT — QR Payment -->
+    <div class="co-right">
+      <p class="co-right-heading">Scan & Pay with UPI</p>
+      <p class="co-right-sub">Use any UPI app — PhonePe, GPay, Paytm, or your bank app — to scan and pay ₹1.</p>
+
+      <div class="qr-card">
+        <div class="qr-logo-row">
+          <div class="qr-logo-dot"></div>
+          <span class="qr-logo-text">INTIX<em>.</em>LABS</span>
+          <div class="qr-logo-dot"></div>
+        </div>
+
+        <div class="qr-wrap">
+          <div class="qr-corner-br"></div>
+          <div class="qr-corner-bl"></div>
+          <div id="qr-container"></div>
+        </div>
+
+        <p class="qr-amount">₹1.00</p>
+        <div class="qr-upi-row">
+          <span class="qr-upi-label">UPI ID</span>
+          <span class="qr-upi-id">ranastudio@fam</span>
+        </div>
+
+        <div class="qr-actions">
+          <button class="qr-copy-btn" id="copy-upi-btn" onclick="copyUPI()">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy UPI ID
+          </button>
+          <button class="qr-open-btn" onclick="openUPIApp()">
+            Open UPI App
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <button class="co-paid-btn" onclick="showTxnModal()">
+        <span class="co-paid-btn-icon">✓</span>
+        I've Completed Payment
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     TRANSACTION ID MODAL
+     ============================================================ -->
+<div id="txn-modal">
+  <div class="txn-box">
+    <div class="txn-icon-wrap">🔐</div>
+    <h3>Verify Your Payment</h3>
+    <p>Enter the UPI Transaction Reference ID from your payment app to confirm your payment and finalize your application.</p>
+    <div class="txn-input-wrap">
+      <label>UPI Transaction Reference Number <span style="color:var(--a)">*</span></label>
+      <input type="text" id="txn-input" placeholder="e.g. 426857301984" maxlength="40"/>
+      <p class="txn-note">Found in your UPI app under transaction history or payment receipt.</p>
+    </div>
+    <button class="verify-btn" id="verify-btn" onclick="verifyAndSubmit()">Verify &amp; Submit Application →</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     SUCCESS PAGE
+     ============================================================ -->
+<div id="success-overlay">
+  <div class="success-inner">
+    <div class="success-ring">
+      <div class="success-check">✓</div>
+    </div>
+
+    <h1>Application Submitted<br><em>Successfully</em></h1>
+    <p class="success-sub">Thank you for participating in the ₹1 Website Initiative. Our team will review your idea and contact you if your project is selected for development.</p>
+
+    <div class="status-card">
+      <div class="sc-header">
+        <div class="sc-header-left">
+          <div class="dot"></div>
+          <span>Under Review</span>
+        </div>
+        <span class="review-time-badge">3–7 Days</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-item"><p class="key">Application ID</p><p class="val green" id="suc-id">INT-000000</p></div>
+        <div class="sc-item"><p class="key">Status</p><p class="val green">Under Review</p></div>
+        <div class="sc-item"><p class="key">Submitted At</p><p class="val" id="suc-time">—</p></div>
+        <div class="sc-item"><p class="key">Review Time</p><p class="val">3–7 Business Days</p></div>
+        <div class="sc-item"><p class="key">Transaction ID</p><p class="val" id="suc-txn" style="font-size:.8rem">—</p></div>
+        <div class="sc-item"><p class="key">Amount Paid</p><p class="val green">₹1.00</p></div>
+      </div>
+    </div>
+
+    <div class="inv-preview">
+      <div class="inv-head">
+        <div class="inv-title-row">
+          <span class="inv-title">Payment Invoice</span>
+          <span class="inv-badge">PAID</span>
+        </div>
+        <span class="inv-brand">INTIX<em>.</em>LABS</span>
+      </div>
+      <div class="inv-rows">
+        <div class="inv-row"><span class="ik">Invoice No.</span><span class="iv" id="inv-no">INV-000000</span></div>
+        <div class="inv-row"><span class="ik">Customer</span><span class="iv" id="inv-cust">—</span></div>
+        <div class="inv-row"><span class="ik">Email</span><span class="iv" id="inv-email">—</span></div>
+        <div class="inv-row"><span class="ik">Project</span><span class="iv" id="inv-proj">—</span></div>
+        <div class="inv-row"><span class="ik">Service</span><span class="iv">₹1 Website Initiative Application</span></div>
+        <div class="inv-row"><span class="ik">Payment Method</span><span class="iv">UPI</span></div>
+        <div class="inv-row"><span class="ik">Transaction ID</span><span class="iv" id="inv-txn">—</span></div>
+        <div class="inv-row"><span class="ik">Date</span><span class="iv" id="inv-date">—</span></div>
+        <div class="inv-row"><span class="ik">Status</span><span class="iv" style="color:var(--a);font-weight:700">Paid</span></div>
+      </div>
+      <div class="inv-total"><span>Total Amount Paid</span><span>₹1.00</span></div>
+    </div>
+
+    <div class="dl-btns">
+      <button class="dl-btn prime" onclick="downloadInvoice()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Invoice PDF
+      </button>
+      <button class="dl-btn sec" onclick="downloadReceipt()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Receipt
+      </button>
+    </div>
+    <button class="home-btn" onclick="goHome()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Return To Home
+    </button>
+  </div>
+</div>
+
+<script>
+// ── PARTICLES ──
+const cv=document.getElementById('hcv'),cx=cv.getContext('2d');
+let W,H,pts=[];
+function rsz(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
+rsz();window.addEventListener('resize',rsz);
+for(let i=0;i<65;i++)pts.push({x:Math.random()*1920,y:Math.random()*1080,r:Math.random()*1.3+.3,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,a:Math.random()*.4+.1});
+(function loop(){
+  cx.clearRect(0,0,W,H);
+  pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;cx.beginPath();cx.arc(p.x,p.y,p.r,0,Math.PI*2);cx.fillStyle=`rgba(0,229,168,${p.a})`;cx.fill();});
+  requestAnimationFrame(loop);
+})();
+
+// ── REVEAL ──
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');}),{threshold:.1});
+document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
+
+// ── COUNT UP ──
+function cUp(el,t){let v=0;const st=Math.max(1,Math.ceil(t/55));const tm=setInterval(()=>{v=Math.min(v+st,t);el.textContent=v.toLocaleString('en-IN');if(v>=t)clearInterval(tm);},26);}
+const sro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){cUp(document.getElementById('s1'),342);cUp(document.getElementById('s2'),28);cUp(document.getElementById('s3'),41);cUp(document.getElementById('s4'),24);sro.disconnect();}});},{threshold:.3});
+sro.observe(document.querySelector('.sg'));
+
+// ── FAQ ──
+document.querySelectorAll('.faqq').forEach(b=>{b.addEventListener('click',()=>{const it=b.parentElement;const was=it.classList.contains('open');document.querySelectorAll('.faqitem').forEach(i=>i.classList.remove('open'));if(!was)it.classList.add('open');});});
+
+// ── STATE ──
+const state={name:'',email:'',phone:'',project:'',type:'',desc:'',existing:'',social:'',notes:'',txnId:'',appId:'',invNo:''};
+
+// ── FORM FLOW ──
+function openForm(){document.getElementById('form-overlay').classList.add('show');document.body.style.overflow='hidden';goStep(1);}
+function closeForm(){document.getElementById('form-overlay').classList.remove('show');document.body.style.overflow='';}
+
+const stepNames=['Personal Information','Project Information','Review Submission'];
+function goStep(n){
+  if(n===2){
+    state.name=document.getElementById('f-name').value.trim();
+    state.email=document.getElementById('f-email').value.trim();
+    state.phone=document.getElementById('f-phone').value.trim();
+    if(!state.name||!state.email){alert('Please enter your name and email address.');return;}
+  }
+  if(n===3){
+    state.project=document.getElementById('f-project').value.trim();
+    state.type=document.getElementById('f-type').value;
+    state.desc=document.getElementById('f-desc').value.trim();
+    state.existing=document.getElementById('f-existing').value.trim();
+    state.social=document.getElementById('f-social').value.trim();
+    state.notes=document.getElementById('f-notes').value.trim();
+    if(!state.project||!state.type||!state.desc){alert('Please fill in Project Name, Website Category and Description.');return;}
+    document.getElementById('rv-name').textContent=state.name;
+    document.getElementById('rv-email').textContent=state.email;
+    document.getElementById('rv-phone').textContent=state.phone||'Not provided';
+    document.getElementById('rv-project').textContent=state.project;
+    document.getElementById('rv-type').textContent=state.type;
+    document.getElementById('rv-desc').textContent=state.desc.slice(0,120)+(state.desc.length>120?'...':'');
+  }
+  for(let i=1;i<=3;i++){
+    document.getElementById('fstep-'+i).classList.toggle('active',i===n);
+    document.getElementById('ffoot-'+i).style.display=(i===n)?'flex':'none';
+    const ps=document.getElementById('ps'+i);
+    ps.className='ps'+(i<n?' done':i===n?' active':'');
+  }
+  document.getElementById('step-cur').textContent=n;
+  document.getElementById('step-name').textContent=stepNames[n-1];
+}
+
+// ── CHECKOUT (full page) ──
+let qrGenerated=false;
+function openCheckout(){
+  closeForm();
+  // populate left panel
+  document.getElementById('co-proj-title').textContent=state.project;
+  document.getElementById('co-name').textContent=state.name;
+  document.getElementById('co-email').textContent=state.email;
+  document.getElementById('co-type').textContent=state.type;
+  // generate QR once
+  if(!qrGenerated){
+    const upi=`upi://pay?pa=ranastudio@fam&pn=Pankaj%20Kumar%20Rana&am=1&cu=INR&tn=${encodeURIComponent(state.project+' - INTIX')}`;
+    const d=document.getElementById('qr-container');
+    d.innerHTML='';
+    try{
+      new QRCode(d,{text:upi,width:176,height:176,colorDark:'#000000',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+    }catch(e){
+      d.innerHTML=`<div style="background:#fff;padding:12px;border-radius:8px;font-size:.6rem;color:#000;word-break:break-all;max-width:180px">${upi}</div>`;
+    }
+    qrGenerated=true;
+  }
+  document.getElementById('checkout-overlay').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+function closeCheckout(){
+  document.getElementById('checkout-overlay').classList.remove('show');
+  openForm();
+  goStep(3);
+  document.body.style.overflow='hidden';
+}
+
+function copyUPI(){
+  navigator.clipboard.writeText('ranastudio@fam').then(()=>{
+    const b=document.getElementById('copy-upi-btn');
+    const orig=b.innerHTML;
+    b.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+    b.style.color='var(--a)';b.style.borderColor='rgba(0,229,168,.3)';
+    setTimeout(()=>{b.innerHTML=orig;b.style.color='';b.style.borderColor='';},2200);
+  }).catch(()=>{
+    prompt('Copy this UPI ID:','ranastudio@fam');
+  });
+}
+
+function openUPIApp(){
+  window.location.href=`upi://pay?pa=ranastudio@fam&pn=Pankaj%20Kumar%20Rana&am=1&cu=INR`;
+}
+
+// ── TXN MODAL ──
+function showTxnModal(){
+  document.getElementById('txn-modal').classList.add('show');
+}
+
+async function verifyAndSubmit(){
+  const txnId=document.getElementById('txn-input').value.trim();
+  if(!txnId){alert('Please enter your UPI Transaction Reference ID.');return;}
+  state.txnId=txnId;
+  const btn=document.getElementById('verify-btn');
+  btn.disabled=true;btn.textContent='Submitting…';
+
+  const num=Math.floor(100000+Math.random()*900000);
+  state.appId='INT-W'+num;
+  state.invNo='INV-'+num;
+  const ts=new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata',dateStyle:'medium',timeStyle:'short'});
+
+  // ntfy notification
+  const body=`🚀 New Website Request Received!\n\nName: ${state.name}\nEmail: ${state.email}\nPhone: ${state.phone||'N/A'}\nProject: ${state.project}\nWebsite Type: ${state.type}\nDescription: ${state.desc}\nExisting: ${state.existing||'N/A'}\nSocial: ${state.social||'N/A'}\nNotes: ${state.notes||'N/A'}\n\n💳 Payment Details\nTransaction ID: ${txnId}\nAmount: ₹1\n\n📋 Application Details\nApplication ID: ${state.appId}\nInvoice No: ${state.invNo}\nSubmitted: ${ts}`;
+  try{
+    await fetch('https://ntfy.sh/intix-website-initiative',{method:'POST',headers:{'Content-Type':'text/plain','Title':'🚀 New ₹1 Website Application — '+state.project,'Priority':'high','Tags':'rocket,money_with_wings'},body});
+  }catch(e){}
+
+  // populate success page
+  document.getElementById('suc-id').textContent=state.appId;
+  document.getElementById('suc-time').textContent=ts;
+  document.getElementById('suc-txn').textContent=txnId;
+  document.getElementById('inv-no').textContent=state.invNo;
+  document.getElementById('inv-cust').textContent=state.name;
+  document.getElementById('inv-email').textContent=state.email;
+  document.getElementById('inv-proj').textContent=state.project;
+  document.getElementById('inv-txn').textContent=txnId;
+  document.getElementById('inv-date').textContent=ts;
+
+  document.getElementById('txn-modal').classList.remove('show');
+  document.getElementById('checkout-overlay').classList.remove('show');
+  document.getElementById('success-overlay').classList.add('show');
+  document.body.style.overflow='auto';
+  btn.disabled=false;btn.textContent='Verify & Submit Application →';
+}
+
+// ── PDF INVOICE ──
+function downloadInvoice(){
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({format:'a4',unit:'mm'});
+  const ts=new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'});
+  // white background
+  doc.setFillColor(255,255,255);doc.rect(0,0,210,297,'F');
+  // header strip
+  doc.setFillColor(10,10,10);doc.rect(0,0,210,38,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(14);doc.setTextColor(255,255,255);
+  doc.text('INTIX LABS',14,16);
+  doc.setFontSize(7.5);doc.setFont('helvetica','normal');doc.setTextColor(140,140,140);
+  doc.text('TAX INVOICE',14,24);
+  doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(0,229,168);
+  doc.text(state.invNo,196,22,{align:'right'});
+  // paid badge
+  doc.setFillColor(0,229,168);doc.roundedRect(158,26,42,10,2.5,2.5,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(0,0,0);
+  doc.text('PAID',179,32.5,{align:'center'});
+  // top glow line
+  doc.setFillColor(0,229,168);doc.rect(0,38,210,.5,'F');
+  // divider
+  doc.setDrawColor(230,230,230);doc.setLineWidth(.25);doc.line(14,48,196,48);
+  // bill to
+  doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(130,130,130);
+  doc.text('BILLED TO',14,57);
+  doc.setFont('helvetica','bold');doc.setFontSize(11);doc.setTextColor(20,20,20);
+  doc.text(state.name,14,65);
+  doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(100,100,100);
+  doc.text(state.email,14,72);
+  if(state.phone)doc.text(state.phone,14,79);
+  // right column
+  doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(130,130,130);
+  doc.text('DATE',128,57);doc.text('APPLICATION ID',128,67);
+  doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(20,20,20);
+  doc.text(ts.split(',')[0],128,63);
+  doc.setFont('helvetica','bold');doc.setFontSize(9);doc.setTextColor(0,180,130);
+  doc.text(state.appId,128,73);
+  // service table header
+  doc.setFillColor(248,248,248);doc.rect(14,88,182,10,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(100,100,100);
+  doc.text('SERVICE DESCRIPTION',16,95);doc.text('AMOUNT',194,95,{align:'right'});
+  // service row
+  doc.setFillColor(255,255,255);doc.rect(14,98,182,20,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(9.5);doc.setTextColor(20,20,20);
+  doc.text('₹1 Website Initiative — Application Fee',16,107);
+  doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(130,130,130);
+  doc.text(`Project: ${state.project}   ·   Type: ${state.type}`,16,113);
+  doc.setFont('helvetica','bold');doc.setFontSize(11);doc.setTextColor(20,20,20);
+  doc.text('₹1.00',194,109,{align:'right'});
+  doc.setDrawColor(230,230,230);doc.line(14,118,196,118);
+  // total block
+  doc.setFillColor(10,10,10);doc.rect(128,122,68,16,'F');
+  doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(160,160,160);
+  doc.text('TOTAL PAID',131,128);
+  doc.setFont('helvetica','bold');doc.setFontSize(12);doc.setTextColor(0,229,168);
+  doc.text('₹1.00',194,131,{align:'right'});
+  // payment details
+  doc.setDrawColor(230,230,230);doc.line(14,148,196,148);
+  doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(130,130,130);
+  doc.text('PAYMENT DETAILS',14,158);
+  doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(60,60,60);
+  doc.text('Method: UPI',14,166);
+  doc.text(`Transaction ID: ${state.txnId}`,14,173);
+  doc.text('UPI ID: ranastudio@fam',14,180);
+  // note box
+  doc.setFillColor(249,249,249);doc.roundedRect(14,190,182,24,2,2,'F');
+  doc.setFont('helvetica','italic');doc.setFontSize(8);doc.setTextColor(130,130,130);
+  doc.text('This invoice confirms receipt of your ₹1 Website Initiative application fee.',18,199);
+  doc.text('INTIX LABS will review your project within 3–7 business days.',18,206);
+  // footer
+  doc.setFillColor(10,10,10);doc.rect(0,280,210,17,'F');
+  doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(120,120,120);
+  doc.text('INTIX LABS · Sundargarh, Odisha, India · pxbypushkarstudio@gmail.com',105,288,{align:'center'});
+  doc.setTextColor(0,200,148);
+  doc.text('"Great websites shouldn\'t be limited by budget."',105,293.5,{align:'center'});
+  doc.save(`INTIX-Invoice-${state.invNo}.pdf`);
+}
+
+function downloadReceipt(){
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({format:[80,140],unit:'mm'});
+  const ts=new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'});
+  doc.setFillColor(10,10,10);doc.rect(0,0,80,140,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(0,229,168);
+  doc.text('INTIX LABS',40,12,{align:'center'});
+  doc.setFontSize(6.5);doc.setFont('helvetica','normal');doc.setTextColor(100,100,100);
+  doc.text('PAYMENT RECEIPT',40,18,{align:'center'});
+  doc.setDrawColor(35,35,35);doc.line(8,22,72,22);
+  const rows=[['App ID',state.appId],['Name',state.name],['Project',state.project],['Amount','₹1.00'],['Method','UPI'],['Txn ID',state.txnId.length>16?state.txnId.slice(0,16)+'…':state.txnId],['Status','PAID'],['Date',ts.split(',')[0]]];
+  let y=31;
+  rows.forEach(([k,v])=>{
+    doc.setFont('helvetica','normal');doc.setFontSize(6.5);doc.setTextColor(100,100,100);doc.text(k,10,y);
+    doc.setFont('helvetica','bold');doc.setFontSize(6.5);doc.setTextColor(220,220,220);doc.text(String(v),72,y,{align:'right'});
+    y+=9;
+  });
+  doc.setDrawColor(35,35,35);doc.line(8,y+2,72,y+2);
+  doc.setFont('helvetica','italic');doc.setFontSize(6.5);doc.setTextColor(80,80,80);
+  doc.text('Thank you for joining the ₹1 Initiative!',40,y+10,{align:'center'});
+  doc.save(`INTIX-Receipt-${state.appId}.pdf`);
+}
+
+function goHome(){
+  document.getElementById('success-overlay').classList.remove('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+  qrGenerated=false;
+  ['f-name','f-email','f-phone','f-project','f-existing','f-social','f-desc','f-notes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('f-type').value='';
+  document.getElementById('txn-input').value='';
+}
+</script>
+</body>
+</html>
